@@ -25,6 +25,7 @@ public class App {
         Deck jogador1 = new Deck();
         Deck jogador2 = new Deck();
         Deck empate = new Deck();
+        
         // Distribui todas as cartas entre os dois jogadore
         while(!baralho.vazio()){
             jogador1.insereEmbaixo(baralho.retiraDeCima());
@@ -41,30 +42,34 @@ public class App {
             System.out.println("Carta do "+player1 +": "+cj1.toString());
             System.out.println("Carta do "+player2 +": "+cj2.toString());
 
+            //Verifica se ouve empate e adiciona as cartas ao deck do empate
+            if(cj1.igual(cj2)){
+            empate.insereEmbaixo(cj1);
+            empate.insereEmbaixo(cj2);
+            }
+
             boolean ordemaleatoria = ra.nextBoolean();
         
             // Se a carta do jogador1 é maior, ele fica com todas
             if (cj1.eMaior(cj2)){
-                if(ordemaleatoria){
-                jogador1.insereEmbaixo(cj1);
+                if(!empate.vazio()){
+                    jogador1.insereEmbaixo(cartasEmpate); //PRECISA RECEBER AS CARTAS DO MONTE DO EMPATE DE MANEIRA ALEATORIA
+                }
                 jogador1.insereEmbaixo(cj2);
-            }
-                else{
-                    jogador2.insereEmbaixo(cj2);
-                    jogador2.insereEmbaixo(cj1); 
-                }
+                jogador1.insereEmbaixo(cj1);  
+                
                 System.out.println(p1 + " ganhou a rodada");
-            }else{
-                if(ordemaleatoria){
-                jogador2.insereEmbaixo(cj2);
-                jogador2.insereEmbaixo(cj1);
             }
-                else{
-                    jogador1.insereEmbaixo(cj1);
-                    jogador1.insereEmbaixo(cj2);
+            else{ // Se a carta do jogador2 eh maior, ele fica com todas 
+                if(!empate.vazio()){
+                    jogador2.insereEmbaixo(cartasEmpate); //PRECISA RECEBER AS CARTAS DO MONTE DO EMPATE DE MANEIRA ALEATORIA
                 }
+                jogador2.insereEmbaixo(cj1);
+                jogador2.insereEmbaixo(cj2);
+                
                 System.out.println(p2 +" ganhou a rodada");
             }
+    }
             // Verifica se acabou
             if (jogador1.vazio() || jogador2.vazio()){
                 acabou = true;
