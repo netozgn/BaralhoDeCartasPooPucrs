@@ -53,19 +53,33 @@ public class App {
             // Se a carta do jogador1 é maior, ele fica com todas
             if (cj1.eMaior(cj2)){
                 if(!empate.vazio()){
-                    jogador1.insereEmbaixo(cartasEmpate); //PRECISA RECEBER AS CARTAS DO MONTE DO EMPATE DE MANEIRA ALEATORIA
+                    jogador1.distribuir(empate); //Caso tenha cartas no deck do empate, o jogador vencedor ganha elas de maneira aleatoria
+                    empate = new Deck();
                 }
-                jogador1.insereEmbaixo(cj2);
-                jogador1.insereEmbaixo(cj1);  
-                
+                if(ordemaleatoria){
+                    jogador1.insereEmbaixo(cj2);
+                    jogador1.insereEmbaixo(cj1);
+                }                                   // Usando a aleatoriadade da booleana a cada loop, o jogador recebe de maneira aleatoria as duas cartas da rodada
+                else{
+                    jogador1.insereEmbaixo(cj1);
+                    jogador1.insereEmbaixo(cj2);
+                }
                 System.out.println(p1 + " ganhou a rodada");
             }
             else{ // Se a carta do jogador2 eh maior, ele fica com todas 
                 if(!empate.vazio()){
-                    jogador2.insereEmbaixo(cartasEmpate); //PRECISA RECEBER AS CARTAS DO MONTE DO EMPATE DE MANEIRA ALEATORIA
+                    jogador2.distribuir(empate);  //Caso tenha cartas no deck do empate, o jogador vencedor ganha elas de maneira aleatoria
+                    empate = new Deck();
                 }
-                jogador2.insereEmbaixo(cj1);
-                jogador2.insereEmbaixo(cj2);
+
+                if(ordemaleatoria){
+                    jogador2.insereEmbaixo(cj2);
+                    jogador2.insereEmbaixo(cj1);
+                }                                   // Usando a aleatoriadade da booleana a cada loop, o jogador recebe de maneira aleatoria as duas cartas da rodada
+                else{
+                    jogador2.insereEmbaixo(cj1);
+                    jogador2.insereEmbaixo(cj2);
+                }
                 
                 System.out.println(p2 +" ganhou a rodada");
             }

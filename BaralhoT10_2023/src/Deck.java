@@ -46,6 +46,12 @@ public class Deck {
         return qtdadeCartas() == 0;
     }
 
+    public void distribuir(Deck deck){
+        int a = r.nextInt(deck.qtdadeCartas());
+        deck.insereEmbaixo(deck.cartas[a]);
+        deck.retiraDeCima();
+    }
+
     void embaralha(){
         int vezes = 2000;
         while(vezes > 0){
