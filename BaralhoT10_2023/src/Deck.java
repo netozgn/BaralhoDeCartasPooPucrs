@@ -46,10 +46,13 @@ public class Deck {
         return qtdadeCartas() == 0;
     }
 
-    public void distribuir(Deck deck){
-        int a = r.nextInt(deck.qtdadeCartas());
-        deck.insereEmbaixo(deck.cartas[a]);
-        deck.retiraDeCima();
+    public void distribuir(Deck deck) {
+        Random ra = new Random();  
+        while (!vazio()) {                                      //Gera um numero aleatorio e pega uma carta aleatoriamente e manda pro deck destinado e tira essa carta desse deck(empate)
+            int a = ra.nextInt(qtdadeCartas()); 
+            deck.insereEmbaixo(cartas[a]);          
+            retiraDeCima();                         
+        }
     }
 
     void embaralha(){

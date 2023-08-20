@@ -53,7 +53,7 @@ public class App {
             // Se a carta do jogador1 é maior, ele fica com todas
             if (cj1.eMaior(cj2)){
                 if(!empate.vazio()){
-                    jogador1.distribuir(empate); //Caso tenha cartas no deck do empate, o jogador vencedor ganha elas de maneira aleatoria
+                    empate.distribuir(jogador1); //Caso tenha cartas no deck do empate, o jogador vencedor ganha elas de maneira aleatoria
                     empate = new Deck();
                 }
                 if(ordemaleatoria){
@@ -68,7 +68,7 @@ public class App {
             }
             else{ // Se a carta do jogador2 eh maior, ele fica com todas 
                 if(!empate.vazio()){
-                    jogador2.distribuir(empate);  //Caso tenha cartas no deck do empate, o jogador vencedor ganha elas de maneira aleatoria
+                    empate.distribuir(jogador2);  //Caso tenha cartas no deck do empate, o jogador vencedor ganha elas de maneira aleatoria
                     empate = new Deck();
                 }
 
