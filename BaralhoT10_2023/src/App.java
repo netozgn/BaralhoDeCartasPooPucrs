@@ -13,7 +13,7 @@ public class App {
         String p1 = player1.getNome();
         String p2 = player2.getNome();
 
-        System.out.println(player1 + " CONTRA " + player2);
+        System.out.println(p1 + " CONTRA " + p2);
 
         sc.close();
       
@@ -30,7 +30,7 @@ public class App {
         while(!baralho.vazio()){
             jogador1.insereEmbaixo(baralho.retiraDeCima());
             jogador2.insereEmbaixo(baralho.retiraDeCima());
-        }
+        
         // Loop do jogo
         boolean acabou = false;
         int rodada = 1;
@@ -95,5 +95,6 @@ public class App {
         }
         System.out.println("Fim");
     }
+}
 }
 

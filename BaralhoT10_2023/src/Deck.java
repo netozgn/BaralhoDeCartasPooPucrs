@@ -48,10 +48,12 @@ public class Deck {
 
     public void distribuir(Deck deck) {
         Random ra = new Random();  
-        while (!vazio()) {                                      //Gera um numero aleatorio e pega uma carta aleatoriamente e manda pro deck destinado e tira essa carta desse deck(empate)
+        while (!vazio()) {
             int a = ra.nextInt(qtdadeCartas()); 
-            deck.insereEmbaixo(cartas[a]);          
-            retiraDeCima();                         
+            if (a >= 0 && a < qtdadeCartas()) {
+                deck.insereEmbaixo(cartas[a]);
+                retiraDeCima();
+            }
         }
     }
 
