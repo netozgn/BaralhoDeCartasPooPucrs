@@ -39,8 +39,8 @@ public class App {
             Carta cj1 = jogador1.retiraDeCima();
             Carta cj2 = jogador2.retiraDeCima();
             System.out.println("Rodada: "+rodada);
-            System.out.println("Carta do "+player1 +": "+cj1.toString());
-            System.out.println("Carta do "+player2 +": "+cj2.toString());
+            System.out.println("Carta do "+p1 +": "+cj1.toString());
+            System.out.println("Carta do "+p2 +": "+cj2.toString());
 
             //Verifica se ouve empate e adiciona as cartas ao deck do empate
             if(cj1.igual(cj2)){
@@ -83,7 +83,7 @@ public class App {
                 
                 System.out.println(p2 +" ganhou a rodada");
             }
-    }
+    
             // Verifica se acabou
             if (jogador1.vazio() || jogador2.vazio()){
                 acabou = true;
