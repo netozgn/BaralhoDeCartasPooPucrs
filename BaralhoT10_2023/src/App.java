@@ -30,7 +30,7 @@ public class App {
         while(!baralho.vazio()){
             jogador1.insereEmbaixo(baralho.retiraDeCima());
             jogador2.insereEmbaixo(baralho.retiraDeCima());
-        
+        }
         // Loop do jogo
         boolean acabou = false;
         int rodada = 1;
@@ -80,7 +80,6 @@ public class App {
                     jogador2.insereEmbaixo(cj1);
                     jogador2.insereEmbaixo(cj2);
                 }
-                
                 System.out.println(p2 +" ganhou a rodada");
             }
     
@@ -96,5 +95,5 @@ public class App {
         System.out.println("Fim");
     }
 }
-}
+
 
